@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:todolist_app/presentation/home/tabs/list_tab//list_tab.dart';
 import 'package:todolist_app/presentation/home/tabs/settings_tab//settings_tab.dart';
+import 'package:todolist_app/presentation/home/tabs/tasks_tab/tasks_tab.dart';
 import 'package:todolist_app/presentation/home/task_bottom_sheet/task_bottom_sheet.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,7 +12,16 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
-  List<Widget> tabs = [const ListTab(), SettingsTab()];
+  List<Widget> tabs = [];
+  GlobalKey<TasksTabState> tasksTabKey = GlobalKey();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    tabs = [TasksTab(key: tasksTabKey,),
+      SettingsTab()];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +30,11 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('To Do List'),
       ),
-      body: tabs[currentIndex],
+
       floatingActionButton: buildFeb(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: buildBottomNavigationBar(),
+      body: tabs[currentIndex],
     );
   }
 
@@ -57,13 +67,12 @@ class _HomeScreenState extends State<HomeScreen> {
       );
 
   buildFeb() => FloatingActionButton(
-        onPressed: () {
-          showTaskBottomSheet();
+        onPressed: () async{
+          await TaskBottomSheet.show(context);
+           tasksTabKey.currentState?.getTodoFromFireStore();
         },
         child: const Icon(Icons.add),
       );
 
-  void showTaskBottomSheet() {
-    showModalBottomSheet(context: context, builder: (context) => TaskBotoomSheet.show(),);
-  }
+
 }

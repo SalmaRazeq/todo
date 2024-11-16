@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:todolist_app/core/utils/app_textStyle.dart';
 import 'package:todolist_app/core/utils/color_manager.dart';
 
-class SettingsTab extends StatelessWidget {
+class SettingsTab extends StatefulWidget {
   SettingsTab({super.key});
 
+  @override
+  State<SettingsTab> createState() => _SettingsTabState();
+}
+
+class _SettingsTabState extends State<SettingsTab> {
   List<Items> items = [
     Items(text: 'Light'),
     Items(text: 'Dark'),
@@ -16,10 +21,11 @@ class SettingsTab extends StatelessWidget {
   ];
 
   var textController = TextEditingController();
+
   var langController = TextEditingController();
 
-
   Items selectedItem = Items(text: 'Light');
+
   Languages selectedLang = Languages(lang: 'English');
 
   @override
@@ -34,27 +40,27 @@ class SettingsTab extends StatelessWidget {
           ),
           Text(
             'Mode',
-            style: ApplightStyle.headerSettings,
+            style: AppLightStyle.headerSettings,
           ),
           const SizedBox(
             height: 17,
           ),
           DropdownMenu<Items>(
-            inputDecorationTheme: const InputDecorationTheme(
-              border: OutlineInputBorder(
+            inputDecorationTheme: InputDecorationTheme(
+              border: const OutlineInputBorder(
                   borderSide: BorderSide(color: ColorsManager.blue, width: 2)),
-              enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: ColorsManager.blue, width: 2)),
-              focusedBorder: OutlineInputBorder(
+              enabledBorder: const OutlineInputBorder(
+                  borderSide:  BorderSide(color: ColorsManager.blue, width: 2)),
+              focusedBorder: const OutlineInputBorder(
                   borderSide: BorderSide(color: ColorsManager.blue, width: 2)),
               filled: true,
-              fillColor: ColorsManager.white,
+              fillColor: Theme.of(context).colorScheme.onPrimary,
             ),
             initialSelection: Items(text: 'Light'),
             controller: textController,
             width: 340,
             hintText: selectedItem.text,
-            textStyle: ApplightStyle.mode,
+            textStyle: AppLightStyle.mode,
             requestFocusOnTap: false,
             enableFilter: true,
             onSelected: (Items? item) {
@@ -73,27 +79,27 @@ class SettingsTab extends StatelessWidget {
           ),
           Text(
             'Language',
-            style: ApplightStyle.headerSettings,
+            style: AppLightStyle.headerSettings,
           ),
           const SizedBox(
             height: 17,
           ),
           DropdownMenu<Languages>(
-            inputDecorationTheme: const InputDecorationTheme(
-              border: OutlineInputBorder(
+            inputDecorationTheme: InputDecorationTheme(
+              border: const OutlineInputBorder(
                   borderSide: BorderSide(color: ColorsManager.blue, width: 2)),
-              enabledBorder: OutlineInputBorder(
+              enabledBorder: const OutlineInputBorder(
                   borderSide: BorderSide(color: ColorsManager.blue, width: 2)),
-              focusedBorder: OutlineInputBorder(
+              focusedBorder: const OutlineInputBorder(
                   borderSide: BorderSide(color: ColorsManager.blue, width: 2)),
               filled: true,
-              fillColor: ColorsManager.white,
+              fillColor: Theme.of(context).colorScheme.onPrimary,
             ),
             initialSelection: Languages(lang: 'English'),
             controller: langController,
             width: 340,
             hintText: selectedLang.lang,
-            textStyle: ApplightStyle.mode,
+            textStyle: AppLightStyle.mode,
             requestFocusOnTap: false,
             enableFilter: true,
             onSelected: (Languages? lang) {
