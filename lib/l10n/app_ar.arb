@@ -1,0 +1,22 @@
+{
+  "taskTab" : "قائمة المهام",
+  "bottomSheetHeader" : "أضافة مهمة",
+  "taskTitleHint" : "ادخل المهمة",
+  "validateTaskTitle" : "برجاء ادخال المهمة",
+  "taskDescHint" : "ادخل تفاصيل المهمة",
+  "validateTaskDesc" : "برجاء ادخال تفاصيل المهمة",
+  "selectDate" : "اختر التاريخ",
+  "addTaskButton" : "اضف المهمة",
+  "settingsTab" : "الأعدادات",
+  "delete" : "مسح",
+  "isDone" : "تم!",
+  "edit" : "تعديل",
+  "editTask" : "تعديل المهمة",
+  "taskTitle" : "المهمة",
+  "taskDetails" : "تفاصيل المهمة",
+  "saveChangesButton" : "حفظ التعديلات",
+  "mode" : "الوضع",
+  "light" : "فاتح",
+  "dark" : "داكن",
+  "language" : "اللغة"
+}

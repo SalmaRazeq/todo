@@ -5,6 +5,7 @@ import 'package:todolist_app/core/utils/app_textStyle.dart';
 import 'package:todolist_app/core/utils/color_manager.dart';
 import 'package:todolist_app/core/utils/date_utils.dart';
 import 'package:todolist_app/database_manager/model/todo_dm.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TaskBottomSheet extends StatefulWidget {
   const TaskBottomSheet({super.key});
@@ -36,7 +37,7 @@ class _TaskBottomSheetState extends State<TaskBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * .5.h,
+      height: MediaQuery.of(context).size.height * .55.h,
       padding: REdgeInsets.all(22),
       child: Form(
         key: formKey,
@@ -44,23 +45,23 @@ class _TaskBottomSheetState extends State<TaskBottomSheet> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              'Add New Task',
+              AppLocalizations.of(context)!.bottomSheetHeader,
               style: AppLightStyle.headerTaskBottom,
               textAlign: TextAlign.center,
             ),
             SizedBox(
-              height: 25.h,
+              height: 20.h,
             ),
             TextFormField(
               validator: (input) {
                 if (input == null || input.trim().isEmpty) {
-                  return 'Plz, Enter task title';
+                  return AppLocalizations.of(context)!.validateTaskTitle;
                 }
                 return null;
               },
               controller: titleController,style: AppLightStyle.controllerTextStyle,
               decoration: InputDecoration(
-                hintText: 'Enter your task',
+                hintText: AppLocalizations.of(context)!.taskTitleHint,
                 hintStyle: AppLightStyle.hintTextStyle,
               ),
             ),
@@ -70,13 +71,13 @@ class _TaskBottomSheetState extends State<TaskBottomSheet> {
             TextFormField(
               validator: (input) {
                 if (input == null || input.trim().isEmpty) {
-                  return 'Plz, Enter task description';
+                  return AppLocalizations.of(context)!.validateTaskDesc;
                 }
                 return null;
               },
               controller: descriptionController,style: AppLightStyle.controllerTextStyle,
               decoration: InputDecoration(
-                hintText: 'Enter your task description',
+                hintText: AppLocalizations.of(context)!.taskDescHint,
                 hintStyle: AppLightStyle.hintTextStyle,
 
               ),
@@ -85,7 +86,7 @@ class _TaskBottomSheetState extends State<TaskBottomSheet> {
               height: 20.h,
             ),
             Text(
-              'Select date',
+              AppLocalizations.of(context)!.selectDate,
               style: AppLightStyle.taskBottomTextStyle,
             ),
             SizedBox(
@@ -107,7 +108,7 @@ class _TaskBottomSheetState extends State<TaskBottomSheet> {
                   addTaskToFireStore();
                 },
                 child: Text(
-                  'Add task', style: AppLightStyle.buttonTextStyle,
+                  AppLocalizations.of(context)!.addTaskButton, style: AppLightStyle.buttonTextStyle,
                 ))
           ],
         ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:todolist_app/core/utils/app_textStyle.dart';
 import 'package:todolist_app/core/utils/color_manager.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettingsTab extends StatefulWidget {
   SettingsTab({super.key});
@@ -30,90 +32,95 @@ class _SettingsTabState extends State<SettingsTab> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(30),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(
-            height: 25,
-          ),
-          Text(
-            'Mode',
-            style: AppLightStyle.headerSettings,
-          ),
-          const SizedBox(
-            height: 17,
-          ),
-          DropdownMenu<Items>(
-            inputDecorationTheme: InputDecorationTheme(
-              border: const OutlineInputBorder(
-                  borderSide: BorderSide(color: ColorsManager.blue, width: 2)),
-              enabledBorder: const OutlineInputBorder(
-                  borderSide:  BorderSide(color: ColorsManager.blue, width: 2)),
-              focusedBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(color: ColorsManager.blue, width: 2)),
-              filled: true,
-              fillColor: Theme.of(context).colorScheme.onPrimary,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context)!.settingsTab),
+      ),
+      body: Container(
+        padding: const EdgeInsets.all(30),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 25.h,
             ),
-            initialSelection: Items(text: 'Light'),
-            controller: textController,
-            width: 340,
-            hintText: selectedItem.text,
-            textStyle: AppLightStyle.mode,
-            requestFocusOnTap: false,
-            enableFilter: true,
-            onSelected: (Items? item) {
-              selectedItem = item ?? Items(text: 'Light');
-            },
-            dropdownMenuEntries:
-                items.map<DropdownMenuEntry<Items>>((Items item) {
-              return DropdownMenuEntry<Items>(
-                value: item,
-                label: item.text,
-              );
-            }).toList(),
-          ),
-          const SizedBox(
-            height: 35,
-          ),
-          Text(
-            'Language',
-            style: AppLightStyle.headerSettings,
-          ),
-          const SizedBox(
-            height: 17,
-          ),
-          DropdownMenu<Languages>(
-            inputDecorationTheme: InputDecorationTheme(
-              border: const OutlineInputBorder(
-                  borderSide: BorderSide(color: ColorsManager.blue, width: 2)),
-              enabledBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(color: ColorsManager.blue, width: 2)),
-              focusedBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(color: ColorsManager.blue, width: 2)),
-              filled: true,
-              fillColor: Theme.of(context).colorScheme.onPrimary,
+            Text(
+              AppLocalizations.of(context)!.mode,
+              style: AppLightStyle.headerSettings,
             ),
-            initialSelection: Languages(lang: 'English'),
-            controller: langController,
-            width: 340,
-            hintText: selectedLang.lang,
-            textStyle: AppLightStyle.mode,
-            requestFocusOnTap: false,
-            enableFilter: true,
-            onSelected: (Languages? lang) {
-              selectedLang = lang ?? Languages(lang: 'English');
-            },
-            dropdownMenuEntries:
-                languages.map<DropdownMenuEntry<Languages>>((Languages language) {
-              return DropdownMenuEntry<Languages>(
-                value: language,
-                label: language.lang,
-              );
-            }).toList(),
-          ),
-        ],
+            const SizedBox(
+              height: 17,
+            ),
+            DropdownMenu<Items>(
+              inputDecorationTheme: InputDecorationTheme(
+                border: OutlineInputBorder(
+                    borderSide: BorderSide(color: ColorsManager.blue, width: 2.w)),
+                enabledBorder: OutlineInputBorder(
+                    borderSide:  BorderSide(color: ColorsManager.blue, width: 2.w)),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: ColorsManager.blue, width: 2.w)),
+                filled: true,
+                fillColor: Theme.of(context).colorScheme.onPrimary,
+              ),
+              initialSelection: Items(text: AppLocalizations.of(context)!.light),
+              controller: textController,
+              width: 340.w,
+              hintText: selectedItem.text,
+              textStyle: AppLightStyle.mode,
+              requestFocusOnTap: false,
+              enableFilter: true,
+              onSelected: (Items? item) {
+                selectedItem = item ?? Items(text: AppLocalizations.of(context)!.light);
+              },
+              dropdownMenuEntries:
+                  items.map<DropdownMenuEntry<Items>>((Items item) {
+                return DropdownMenuEntry<Items>(
+                  value: item,
+                  label: item.text,
+                );
+              }).toList(),
+            ),
+             SizedBox(
+              height: 35.h,
+            ),
+            Text(
+              AppLocalizations.of(context)!.language,
+              style: AppLightStyle.headerSettings,
+            ),
+            SizedBox(
+              height: 17.h,
+            ),
+            DropdownMenu<Languages>(
+              inputDecorationTheme: InputDecorationTheme(
+                border: OutlineInputBorder(
+                    borderSide: BorderSide(color: ColorsManager.blue, width: 2.w)),
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: ColorsManager.blue, width: 2.w)),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: ColorsManager.blue, width: 2.w)),
+                filled: true,
+                fillColor: Theme.of(context).colorScheme.onPrimary,
+              ),
+              initialSelection: Languages(lang: 'English'),
+              controller: langController,
+              width: 340.w,
+              hintText: selectedLang.lang,
+              textStyle: AppLightStyle.mode,
+              requestFocusOnTap: false,
+              enableFilter: true,
+              onSelected: (Languages? lang) {
+                selectedLang = lang ?? Languages(lang: 'English');
+              },
+              dropdownMenuEntries:
+                  languages.map<DropdownMenuEntry<Languages>>((Languages language) {
+                return DropdownMenuEntry<Languages>(
+                  value: language,
+                  label: language.lang,
+                );
+              }).toList(),
+            ),
+          ],
+        ),
       ),
     );
   }

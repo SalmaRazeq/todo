@@ -1,0 +1,22 @@
+{
+  "taskTab" : "To Do List",
+  "bottomSheetHeader" : "Add New Task",
+  "taskTitleHint" : "Enter your task",
+  "validateTaskTitle" : "Plz, Enter task title",
+  "taskDescHint" : "Enter your task description",
+  "validateTaskDesc" : "Plz, Enter task description",
+  "selectDate" : "Select date",
+  "addTaskButton" : "Add task",
+  "settingsTab" : "Settings",
+  "delete" : "Delete",
+  "isDone" : "Done!",
+  "edit" : "Edit",
+  "editTask" : "Edit Task",
+  "taskTitle" : "Task Title",
+  "taskDetails" : "Task details",
+  "saveChangesButton" : "Save Changes",
+  "mode" : "Mode",
+  "light" : "Light",
+  "dark" : "Dark",
+  "language" : "Language"
+}

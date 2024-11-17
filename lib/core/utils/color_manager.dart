@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class ColorsManager{
+  static const Color green = Color(0xFF61E757);
+static const Color regColor = Color(0xFF3b79b7);
   static const Color bgColor = Color(0xFFDFECDB);
   static const Color blue = Color(0xFF5D9CEC);
   static const Color white = Colors.white;

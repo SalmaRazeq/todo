@@ -1,6 +1,7 @@
 class RoutesManager{
-  static const String homeRoute = "/home";
-  static const String splashRoute = "/splash";
-  static const String updateRoute = "/update_screen";
+  static const String home = "/home";
+  static const String splash = "/splash";
+  static const String update = "/update_screen";
+  static const String register = "/register_screen";
 
 }

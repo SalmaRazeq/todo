@@ -12,7 +12,7 @@ class AppLightStyle{
   static TextStyle? headerTaskBottom =  TextStyle(fontSize: 20.sp,fontWeight: FontWeight.w700, color: ColorsManager.darkGrey);
   static TextStyle? buttonTextStyle = TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w500, color: ColorsManager.white);
   static TextStyle? taskTitle = TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700, color: ColorsManager.blue);
-  static TextStyle? taskDescription = TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w400, color: ColorsManager.darkGrey);
+  static TextStyle? taskDescription = TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w400, color: ColorsManager.darkGrey);
   static TextStyle? headerSettings = TextStyle(fontSize: 20.sp,fontWeight: FontWeight.w700, color: ColorsManager.darkGrey);
   static TextStyle? mode = TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w500, color: ColorsManager.blue);
   static TextStyle? inactiveDayStyle = TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w700, color: ColorsManager.darkGrey);

@@ -6,7 +6,7 @@ import 'package:todolist_app/core/utils/route_manager.dart';
 class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Future.delayed(Duration(seconds: 2), () {
-      Navigator.pushReplacementNamed(context, RoutesManager.homeRoute);
+      Navigator.pushReplacementNamed(context, RoutesManager.home);
     });
 
     return Scaffold(
