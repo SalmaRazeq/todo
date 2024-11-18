@@ -6,6 +6,7 @@ import 'package:todolist_app/core/utils/color_manager.dart';
 import 'package:todolist_app/core/utils/date_utils.dart';
 import 'package:todolist_app/database_manager/model/todo_dm.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:todolist_app/database_manager/model/user_dm.dart';
 
 class TaskBottomSheet extends StatefulWidget {
   const TaskBottomSheet({super.key});
@@ -132,7 +133,7 @@ class _TaskBottomSheetState extends State<TaskBottomSheet> {
     if(formKey.currentState!.validate() == false) return;
 
     CollectionReference collectionReference =
-        FirebaseFirestore.instance.collection(TodoDM.collectionName);
+        FirebaseFirestore.instance.collection(UserDM.collectionName).doc(UserDM.currentUser!.id).collection(TodoDM.collectionName);
 
     DocumentReference documentReference = collectionReference.doc();
     TodoDM todo = TodoDM(

@@ -3,5 +3,6 @@ class RoutesManager{
   static const String splash = "/splash";
   static const String update = "/update_screen";
   static const String register = "/register_screen";
+  static const String login = "/login";
 
 }

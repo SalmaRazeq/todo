@@ -5,15 +5,18 @@ import 'package:todolist_app/core/utils/color_manager.dart';
 typedef Validator = String? Function(String?);
 
 class RegisterDesign extends StatelessWidget {
-  RegisterDesign({super.key, required this.hintText, required this.controller, required this.validator});
+  RegisterDesign({super.key, required this.hintText,
+    required this.controller, required this.validator, this.isSecure = false});
   String hintText;
   TextEditingController controller;
   Validator validator;
+  bool isSecure;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       validator: validator,
+      obscureText: isSecure,
       controller: controller, style: TextStyle(fontSize: 18.sp),
       decoration: InputDecoration(
         hintText: hintText,

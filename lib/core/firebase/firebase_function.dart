@@ -1,10 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:todolist_app/database_manager/model/todo_dm.dart';
+import 'package:todolist_app/database_manager/model/user_dm.dart';
 
 class FirebaseFunction {
   static CollectionReference getCollection() {
     CollectionReference todoCollection =
-        FirebaseFirestore.instance.collection(TodoDM.collectionName);
+        FirebaseFirestore.instance.collection(UserDM.collectionName).doc(UserDM.currentUser!.id).collection(TodoDM.collectionName);
 
     return todoCollection;
   }

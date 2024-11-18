@@ -9,6 +9,7 @@ import 'package:todolist_app/core/utils/date_utils.dart';
 import 'package:todolist_app/core/utils/route_manager.dart';
 import 'package:todolist_app/database_manager/model/todo_dm.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:todolist_app/database_manager/model/user_dm.dart';
 
 class ListItem extends StatelessWidget {
    ListItem({super.key, required this.todo, required this.onDeletedTask, required this.todokey});
@@ -19,7 +20,6 @@ class ListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
       margin: const EdgeInsets.only(left: 25, right: 25, top: 25),
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(15.r),
           color: Theme.of(context).colorScheme.onPrimary),
@@ -129,9 +129,18 @@ class ListItem extends StatelessWidget {
 
    void deleteTodo(TodoDM todo) async {
      CollectionReference todoCollection = FirebaseFirestore.instance
+         .collection(UserDM.collectionName)
+         .doc(UserDM.currentUser!.id)
          .collection(TodoDM.collectionName);
-     DocumentReference task = todoCollection.doc(todo.id);
-     await task.delete();
+     DocumentReference todoDoc = todoCollection.doc(todo.id);
+     await todoDoc.delete();
    }
+}
+
+class DataUpdate{
+  TodoDM todo;
+  var todoKey;
+
+  DataUpdate({required this.todo, required this.todoKey});
 }
 

@@ -13,9 +13,10 @@ class UpdateScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var data = ModalRoute.of(context)?.settings.arguments as TodoDM;
-
+    //var allData = ModalRoute.of(context)!.settings.arguments as DataUpdate;
+    var data =  ModalRoute.of(context)!.settings.arguments as TodoDM;
     var formatedDate = data.dateTime.toFormattedDate;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.taskTab),
@@ -74,6 +75,7 @@ class UpdateScreen extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () async{
                      await FirebaseFunction.updateTask(data);
+
                     },
                     child:  Text(AppLocalizations.of(context)!.saveChangesButton ,style: AppLightStyle.buttonTextStyle,),
                   ),

@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:todolist_app/confing/theme/app_theme.dart';
 import 'package:todolist_app/core/utils/route_manager.dart';
+import 'package:todolist_app/presentation/auth/log_in/log-in.dart';
 import 'package:todolist_app/presentation/auth/register/register.dart';
 import 'package:todolist_app/presentation/home/home_screen.dart';
 import 'package:todolist_app/presentation/splash_screen/splash.dart';
@@ -23,12 +24,14 @@ class MyApp extends StatelessWidget {
           RoutesManager.splash : (context) => SplashScreen(),
           RoutesManager.update : (context) => UpdateScreen(),
           RoutesManager.register : (context) => Register(),
+          RoutesManager.login : (context) => Login(),
+
 
         },
-        initialRoute: RoutesManager.register,
+        initialRoute: RoutesManager.login,
         theme: AppTheme.light,
         darkTheme: AppTheme.dark,
-        themeMode: ThemeMode.dark,
+        themeMode: ThemeMode.light,
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: const [
           Locale('en'), // English

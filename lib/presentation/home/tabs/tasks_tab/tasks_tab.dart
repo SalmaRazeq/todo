@@ -6,6 +6,7 @@ import 'package:todolist_app/core/utils/app_textStyle.dart';
 import 'package:todolist_app/core/utils/color_manager.dart';
 import 'package:todolist_app/core/utils/date_utils.dart';
 import 'package:todolist_app/database_manager/model/todo_dm.dart';
+import 'package:todolist_app/database_manager/model/user_dm.dart';
 import 'package:todolist_app/presentation/home/tabs/tasks_tab/widget/list_item.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -141,7 +142,7 @@ class TasksTabState extends State<TasksTab> {
 
    void getTodoFromFireStore() async {
     CollectionReference todoCollection =
-        FirebaseFirestore.instance.collection(TodoDM.collectionName);
+        FirebaseFirestore.instance.collection(UserDM.collectionName).doc(UserDM.currentUser!.id).collection(TodoDM.collectionName);
 
     QuerySnapshot collectionSnapshot = await todoCollection
         .where('dateTime',
